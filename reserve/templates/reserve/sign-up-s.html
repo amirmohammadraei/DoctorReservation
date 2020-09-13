@@ -1,0 +1,11 @@
+{% extends "reserve/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block up %}
+        <h1 style="text-align: center; color: green">Sign up successfully</h1>
+        <hr class="my-4">
+{% endblock up %}
+
+{% block content %}
+    <p><a href="{% url 'sign_in' %}">Login?</a></p>
+{% endblock content %}

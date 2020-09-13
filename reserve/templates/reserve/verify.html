@@ -1,0 +1,11 @@
+{% extends "reserve/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <p style="color: darkred; text-align: center">To access to the website you need to VERIFY your email</p>
+    <form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success" style="text-align: center"><i class="fas fa-user-check"></i> Verify</button>
+    </form>
+{% endblock content %}

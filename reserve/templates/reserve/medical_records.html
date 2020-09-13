@@ -1,0 +1,20 @@
+{% extends 'reserve/base.html' %}
+
+{% block up %}
+    <h1 class="display-4" style="text-align: center">Your medical records.</h1>
+        <p><a href="{% url 'doctor_page'%}">Menu</a></p>
+    <hr class="my-4">
+{% endblock up %}
+
+
+{% block content %}
+    {% for i in list %}
+        <p>Name: {{ i.ahh }}</p>
+        <p>    Doctor: {{ i.docesh }},</p>
+        <p> Date: {{ i.zaman }},</p>
+        <p>Medicine: {{ i.medicine }},</p>
+        <p>Count: {{ i.count }}</p>
+        <hr class="my-4">
+    {% endfor %}
+
+{% endblock %}

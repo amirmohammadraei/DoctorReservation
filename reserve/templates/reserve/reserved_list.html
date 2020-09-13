@@ -1,0 +1,51 @@
+{% extends 'reserve/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block style %}
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+    </style>
+{% endblock style %}
+
+{% block up %}
+    <h1 class="display-4" style="text-align: center">View Reserves!</h1>
+     <p><a href="{% url 'menu'%}">Menu</a></p>
+    <hr class="my-4">
+{% endblock up %}
+
+
+{% block content%}
+    <table style="width:100%">
+        <tr>
+            <th>Doctor's name</th>
+            <th>Date</th>
+            <th>Start</th>
+            <th>End</th>
+        </tr>
+            <tr>
+                {% for i in a %}
+                    <tr>
+                            {% for j in users %}
+                                {% if j.id == i.doctor_id %}
+                                    <td>{{ j.last_name }}</td>
+                                {% else %}
+
+                                {% endif %}
+                            {% endfor %}
+                            <td>{{ i.date }}</td>
+                            <td>{{ i.start_time }}</td>
+                            <td>{{ i.end_time }}</td>
+
+                    </tr>
+                {% endfor %}
+            </tr>
+    </table>
+{% endblock content%}

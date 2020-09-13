@@ -1,0 +1,41 @@
+{% extends 'reserve/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block up %}
+    <h1 class="display-4" style="text-align: center">Add time!</h1>
+    <p><a href="{% url 'doctor_page'%}">Menu</a></p>
+    <hr class="my-4">
+{% endblock up  %}
+
+{% block content %}
+
+    {% if past == 0 %}
+        <p style="color: red; text-align: center">You can't enter a date which is for past!</p>
+    {% endif %}
+
+    {% if tarikh == 0 %}
+        <p style="color: red; text-align: center">The date entered is not within a period of one month!</p>
+    {% endif %}
+
+    {% if val == 0 %}
+        <p style="color: red; text-align: center">Enter date and time like Regular pattern!</p>
+    {% endif %}
+
+    {% if gleich == 0 %}
+        <p style="color: red; text-align: center">You enter two equal time, Try Again!</p>
+    {% endif %}
+
+    {% if greater == 0 %}
+        <p style="color: red; text-align: center">End time should be greater than start time!</p>
+    {% endif %}
+
+
+    <form action="" method="post" autocomplete="off">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+
+     <button type="submit" class="btn btn-success"><i class="fas fa-database"></i> Log In</button>
+    </form>
+{% endblock content %}

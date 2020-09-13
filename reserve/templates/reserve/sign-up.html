@@ -1,0 +1,37 @@
+{% extends "reserve/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block up %}
+    <h1 class="display-4" style="text-align: center">User signup</h1>
+    <p class="lead font-italic" style="text-align: center">Enter your information to sign up.</p>
+    <hr class="my-4">
+{% endblock up %}
+
+
+{% block content %}
+    <form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+
+    {% if em == 0 %}
+        <p style="color: #993333; text-align: center">Email has been taken!</p>
+    {% endif %}
+
+    {% if us == 0 %}
+        <p style="color: #993333; text-align: center">Username has been taken!</p>
+    {% endif %}
+
+    {% if ph == 0 %}
+        <p style="color: #993333; text-align: center">Phone number has been taken!</p>
+    {% endif %}
+
+    {% if em_ex == 0 %}
+        <p style="color: #993333; text-align: center">Email address format should be like example@example.example!</p>
+    {% endif %}
+
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-success"><i class="fas fa-database"></i> Log In</button>
+    <br>
+    <br>
+    </form>
+{% endblock content %}

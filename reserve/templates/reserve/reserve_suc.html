@@ -1,0 +1,11 @@
+{% extends "reserve/base.html" %}
+
+{% block up %}
+    <h1 class="display-4" style="text-align: center">Time Reserved successfully!</h1>
+    <p><a href="{% url 'menu'%}">Menu</a></p>
+    <hr class="my-4">
+{% endblock %}
+
+{% block content %}
+    <p>Your appointment was booked with doctor {{ name }}</p>
+{% endblock %}

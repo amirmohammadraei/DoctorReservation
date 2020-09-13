@@ -1,0 +1,52 @@
+{% extends 'reserve/base.html'%}
+{% load crispy_forms_tags %}
+
+
+{% block style %}
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+    </style>
+{% endblock style %}
+
+{% block up %}
+    <h1 class="display-4" style="text-align: center">Add time!</h1>
+    <p><a href="{% url 'doctor_page'%}">Menu</a></p>
+    <hr class="my-4">
+{% endblock up  %}
+
+
+{% block content %}
+
+    {% if val == 0 %}
+        <p style="color: red; text-align: center">Invalid username</p>
+    {% endif %}
+
+    <table style="width:100%">
+        <tr>
+            <th>Username</th>
+        </tr>
+
+    {% for foo in a %}
+        <tr>
+            <td>{{ foo }}</td>
+        </tr>
+    {% endfor %}
+
+    </table>
+    <br>
+    <br>
+
+    <form action="" method="post" autocomplete="off">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success"><i class="fas fa-edit"></i> Save</button>
+    </form>
+
+{% endblock %}

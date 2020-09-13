@@ -1,0 +1,13 @@
+{% extends 'reserve/base.html' %}
+
+{% block up %}
+    <h1 class="display-4" style="text-align: center">Welcome Doctor!</h1>
+    <hr class="my-4">
+{% endblock up  %}
+
+{% block content %}
+    <p><a href="{% url "add_time" %}">Manage Time!</a></p>
+    <p><a href="{% url "viewlist" %}">View List!</a></p>
+    <p><a href="{% url "patientlist" %}">List of patients!</a></p>
+    <p><a href="{% url "visitpast" %}">Past and empty visit times!</a></p>
+{% endblock content %}

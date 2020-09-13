@@ -1,0 +1,14 @@
+{% extends "reserve/base.html" %}
+
+{% block up %}
+    <h1 class="display-4" style="text-align: center">Menu!</h1>
+    <hr class="my-4">
+{% endblock up%}
+
+{% block content %}
+    <a href="{% url "viewprofile" %}"><p>View Profile</p></a>
+    <a href="{% url "editprofile"%}"><p>Edit Profile</p></a>
+    <a href="{% url "viewlist" %}"><p>Make an appointment</p></a>
+    <a href="{% url "reservedlist" %}"><p>View reserved times list</p></a>
+    <a href="{% url "personalrecord" %}"><p>Medical records</p></a>
+{% endblock content %}

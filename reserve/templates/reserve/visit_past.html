@@ -1,0 +1,53 @@
+{% extends 'reserve/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block style %}
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+    </style>
+{% endblock style %}
+
+{% block up %}
+    <h1 class="display-4" style="text-align: center">View past and empty visit times!</h1>
+        <p><a href="{% url 'doctor_page'%}">Menu</a></p>
+
+    <hr class="my-4">
+{% endblock up %}
+
+
+{% block content%}
+    <table style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>Date</th>
+            <th>Start</th>
+            <th>End</th>
+        </tr>
+        {% for i in a %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.date }}</td>
+                <td>{{ i.start_time }}</td>
+                <td>{{ i.end_time }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+    <br>
+    <form action="" method="post" autocomplete="off">
+
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-success"><i class="fas fa-edit"></i> Save</button>
+    </form>
+{% endblock content%}

@@ -1,0 +1,15 @@
+{% extends "reserve/base.html" %}
+
+{% block up %}
+    <h1 class="display-4" style="text-align: center">Menu!</h1>
+    <a href="{% url "menu" %}"><p>Menu</p></a>
+    <hr class="my-4">
+{% endblock up%}
+
+{% block content %}
+    <p>First name: {{ first_name }}</p>
+    <p>Last name: {{ last_name }}</p>
+    <p>Email: {{ email }}</p>
+    <p>Phone number: {{ phone_number }}</p>
+    <p>Case number: {{ case_number }}</p>
+{% endblock content %}

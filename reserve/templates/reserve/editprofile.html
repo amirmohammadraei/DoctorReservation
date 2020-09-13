@@ -1,0 +1,14 @@
+{% extends "reserve/base.html" %}
+
+{% block up %}
+    <h1 class="display-4" style="text-align: center">Edit profile!</h1>
+    <a href="{% url "menu" %}"><p>Menu</p></a>
+    <hr class="my-4">
+{% endblock up %}
+
+
+{% block content %}
+    <p><a href="{% url 'editfirstname' %}">Edit First Name</a></p>
+    <p><a href="{% url 'editlastname' %}">Edit Last Name</a></p>
+    <p><a href="{% url 'editpassword' %}">Edit Password</a></p>
+{% endblock content %}

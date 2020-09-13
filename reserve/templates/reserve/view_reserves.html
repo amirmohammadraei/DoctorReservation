@@ -1,0 +1,86 @@
+{% extends 'reserve/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block style %}
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+    </style>
+{% endblock style %}
+
+{% block up %}
+    <h1 class="display-4" style="text-align: center">View available visit times!</h1>
+    {% if rolee == 0 %}
+        <p><a href="{% url 'doctor_page'%}">Menu</a></p>
+    {% endif %}
+
+    {% if rolee == 1 %}
+        <p><a href="{% url 'menu'%}">Menu</a></p>
+    {% endif %}
+
+    <hr class="my-4">
+{% endblock up %}
+
+
+{% block content%}
+    <table style="width:100%">
+        <tr>
+            {% if rolee != 0 %}
+                <th>Id</th>
+                <th>Doctor's name</th>
+            {% endif %}
+            <th>Date</th>
+            <th>Start</th>
+            <th>End</th>
+        </tr>
+        {% for i in check %}
+            {% if rolee == 0 %}
+                    {% if i.doctor_id == role.id %}
+                        <tr>
+                            {% if i.empty != "False" %}
+                                <td>{{ i.date }}</td>
+                                <td>{{ i.start_time }}</td>
+                                <td>{{ i.end_time }}</td>
+                            {% endif %}
+                        </tr>
+                    {% endif %}
+            {% endif %}
+
+            {% if rolee == 1 %}
+                        <tr>
+                            {% if i.empty != "False" %}
+                                <td>{{ i.id }}</td>
+                                {% for j in doocis %}
+                                    {% if j.id == i.doctor_id %}
+                                        <td>{{ j.last_name }}</td>
+                                    {% endif %}
+                                {% endfor %}
+                                <td>{{ i.date }}</td>
+                                <td>{{ i.start_time }}</td>
+                                <td>{{ i.end_time }}</td>
+                            {% endif %}
+                        </tr>
+            {% endif %}
+
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+    <br>
+    {% if rolee == 1 %}
+        <form action="" method="post" autocomplete="off">
+
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <button type="submit" class="btn btn-success"><i class="fas fa-edit"></i> Save</button>
+        </form>
+    {% endif %}
+{% endblock content%}

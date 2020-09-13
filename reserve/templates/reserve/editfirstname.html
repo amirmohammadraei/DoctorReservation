@@ -1,0 +1,20 @@
+{% extends "reserve/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block up %}
+    <h1 class="display-4" style="text-align: center">Edit First     name!</h1>
+    <a href="{% url "editprofile" %}"><p>edit profile</p></a>
+    <hr class="my-4">
+{% endblock up %}
+
+
+{% block content %}
+    <form action="" method="post" autocomplete="off">
+
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-success"><i class="fas fa-edit"></i> Save</button>
+    </form>
+{% endblock content %}
