@@ -7,4 +7,5 @@
 <p>python manage.py migrate</p>
 <p>python manage.py runserver</p>
 
-Done! Hope you enjou ❤️
+Done! Hope you enjoy.
+❤️
